@@ -21,6 +21,12 @@ $(call inherit-product, $(DEVICE_PATH)/device.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sky/sky-vendor.mk)
 
+WITH_GMS := true
+
+TARGET_ENABLE_BLUR := true/false
+BLACKIRON_BUILDTYPE := UNOFFICIAL
+
+
 ## Device identifier
 PRODUCT_DEVICE := sky
 PRODUCT_NAME := lineage_sky
