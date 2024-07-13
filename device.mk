@@ -132,6 +132,10 @@ PRODUCT_PACKAGES_DEBUG += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.7.vendor \
+    libcamera_metadata.vendor \
+    libexif.vendor \
+    libutilscallstack.vendor \
+    libyuv.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -215,6 +219,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
+# Google Camera Go
+PRODUCT_PACKAGES += \
+    GoogleCameraGo
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1.vendor \
@@ -271,7 +279,10 @@ PRODUCT_COPY_FILES += \
 
 # JSON
 PRODUCT_PACKAGES += \
-    libjson
+    libcurl.vendor \
+    libjson \
+    libjsoncpp.vendor \
+    libsqlite.vendor
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -374,8 +385,13 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.3.vendor
 
 # Power
+PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service.lineage-libperfmgr \
+    libperfmgr.vendor \
+    libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/power/config/parrot/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
@@ -415,6 +431,7 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
+    init.sky.post_boot.sh \
     init.target.rc \
     ueventd.qcom.rc \
     ueventd-odm.rc \
@@ -479,6 +496,10 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/qcom-caf/common/libqti-perfd-client \
     hardware/xiaomi
 
 # Telephony
@@ -582,6 +603,8 @@ PRODUCT_COPY_FILES += \
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl \
+    libpng.vendor \
     libwfdaac_vendor
+
 
 

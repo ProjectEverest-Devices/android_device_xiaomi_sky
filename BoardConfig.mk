@@ -32,12 +32,14 @@ TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := kryo300
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
 
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
@@ -65,7 +67,6 @@ TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
-BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
 
 # Camera
 MALLOC_SVELTE := true
@@ -172,11 +173,6 @@ BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 6975127552
 
-BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 104857600
-BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 104857600
-BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 409715200
-BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 104857600
-
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -200,7 +196,7 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 TARGET_USERIMAGES_SPARSE_F2FS_DISABLED := true
 
 # Power
-TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
+TARGET_POWER_LIBPERFMGR_MODE_EXTENSION_LIB := //$(DEVICE_PATH):libperfmgr-ext-sky
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/configs/properties/odm.prop
@@ -263,12 +259,11 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 DEVICE_MANIFEST_SKUS := ravelin
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
 DEVICE_MANIFEST_RAVELIN_FILES := \
-    $(DEVICE_PATH)/configs/vintf/manifest_ravelin.xml \
-    $(DEVICE_PATH)/configs/vintf/manifest_xiaomi.xml
+    $(DEVICE_PATH)/configs/vintf/manifest_ravelin.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/configs/vintf/vendor_framework_compatibility_matrix.xml \
     $(DEVICE_PATH)/configs/vintf/xiaomi_framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
+    vendor/infinity/config/device_framework_matrix.xml
 ODM_MANIFEST_SKUS += hceese hcesim hcesim1 hcesim1ese hcesimese
 ODM_MANIFEST_HCEESE_FILES := $(DEVICE_PATH)/configs/vintf/manifest_hceese.xml
 ODM_MANIFEST_HCESIM_FILES := $(DEVICE_PATH)/configs/vintf/manifest_hcesim.xml

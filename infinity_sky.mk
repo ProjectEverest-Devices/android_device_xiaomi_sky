@@ -13,7 +13,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit common Infinity-X configurations
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
+
+$(call inherit-product, vendor/infinity/config/BoardConfigReservedSize.mk)
 
 # Inherit device configurations
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
@@ -21,18 +23,23 @@ $(call inherit-product, $(DEVICE_PATH)/device.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sky/sky-vendor.mk)
 
-WITH_GMS := true
-
-TARGET_ENABLE_BLUR := true/false
-BLACKIRON_BUILDTYPE := UNOFFICIAL
-
-
 ## Device identifier
 PRODUCT_DEVICE := sky
-PRODUCT_NAME := lineage_sky
+PRODUCT_NAME := infinity_sky
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := 23076RN4BI
 PRODUCT_MANUFACTURER := Xiaomi
 
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+WITH_GAPPS=true
+INFINITY_BUILD_TYPE := OFFICIAL
+TARGET_BOOTANIMATION := 1080
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_BUILD_APERTURE_CAMERA := true
+INFINITY_MAINTAINER := "SuvojeetSengupta"
+TARGET_BUILD_VIMUSIC := true
+TARGET_CALL_RECORDING_SUPPORTED := true
+TARGET_BUILD_GOOGLE_TELEPHONY := true
+USE_MOTO_CALCULATOR := true
