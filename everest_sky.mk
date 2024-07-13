@@ -13,9 +13,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit common Infinity-X configurations
-$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
+$(call inherit-product, vendor/everest/config/common_full_phone.mk)
 
-$(call inherit-product, vendor/infinity/config/BoardConfigReservedSize.mk)
+$(call inherit-product, vendor/everest/config/BoardConfigReservedSize.mk)
 
 # Inherit device configurations
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
@@ -25,7 +25,7 @@ $(call inherit-product, vendor/xiaomi/sky/sky-vendor.mk)
 
 ## Device identifier
 PRODUCT_DEVICE := sky
-PRODUCT_NAME := infinity_sky
+PRODUCT_NAME := everest_sky
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := 23076RN4BI
 PRODUCT_MANUFACTURER := Xiaomi
@@ -33,13 +33,22 @@ PRODUCT_MANUFACTURER := Xiaomi
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-WITH_GAPPS=true
-INFINITY_BUILD_TYPE := OFFICIAL
-TARGET_BOOTANIMATION := 1080
-TARGET_SUPPORTS_QUICK_TAP := true
-TARGET_BUILD_APERTURE_CAMERA := true
-INFINITY_MAINTAINER := "SuvojeetSengupta"
-TARGET_BUILD_VIMUSIC := true
-TARGET_CALL_RECORDING_SUPPORTED := true
-TARGET_BUILD_GOOGLE_TELEPHONY := true
-USE_MOTO_CALCULATOR := true
+# everest flags
+EVEREST_MAINTAINER := Ashwani_&_Dhanush
+
+# Blur
+TARGET_SUPPORTS_BLUR := true
+
+# Gapps
+WITH_GAPPS := true
+
+# Vanilla
+# WITH_GAPPS := false
+
+# Lawnchair in GAPPS build (Default= Pixel Launcher)
+TARGET_INCLUDE_PIXEL_LAUNCHER := false
+TARGET_INCLUDE_LAWNCHAIR := true
+
+# launcher
+# TARGET_INCLUDE_PIXEL_LAUNCHER := false
+# TARGET_INCLUDE_LAUNCHER3 := true

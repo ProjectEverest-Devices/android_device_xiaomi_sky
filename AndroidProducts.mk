@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/infinity_sky.mk
+    $(LOCAL_DIR)/everest_sky.mk
 
 COMMON_LUNCH_CHOICES := \
-    infinity_sky-eng \
-    infinity_sky-userdebug \
-    infinity_sky-user
+    everest_sky-ap2a-eng \
+    everest_sky-ap2a-userdebug \
+    everest_sky-ap2a-user
