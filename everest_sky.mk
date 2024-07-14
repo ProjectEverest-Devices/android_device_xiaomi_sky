@@ -34,6 +34,8 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # everest flags
+EVEREST_BUILD_TYPE := OFFICIAL
+
 EVEREST_MAINTAINER := Ashwani_&_Dhanush
 
 # Blur
