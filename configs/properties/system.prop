@@ -30,12 +30,27 @@ persist.log.tag.TrafficStats=S
 persist.log.tag.ContrastColorUtil=S
 persist.log.tag.OpenGLRenderer=S
 
+# Improve global touch screen response
+debug.performance.tuning=1
+video.accelerate.hw=1
+view.touch_slop=1
+view.scroll_friction=0
+
+# Improve sliding response
+windowsmgr.max_events_per_sec=800
+view.scroll_friction=0
+ro.min_pointer_dur=0
+ro.min.pointer.dur=0
+
 # RIL
 DEVICE_PROVISIONED=1
 persist.vendor.data.mode=concurrent
 ril.subscription.types=NV,RUIM
 ro.telephony.default_network=33,33
 telephony.lteOnCdmaDevice=1
+
+# Open the first-in-first-out interface thread
+sys.use_fifo_ui=1
 
 # Radio VoNR Calling
 persist.radio.is_vonr_enabled_0=true
@@ -46,6 +61,10 @@ persist.vendor.sensors.enable.mag_filter=true
 
 # SSR
 persist.vendor.ssr.enable_ramdumps=1
+
+# Turn off vertical sync (V-Sync)
+debug.hwui.disable_vsync=true
+persist.sys.ui.hw=1
 
 # WiFi display
 persist.debug.wfd.enable=1
